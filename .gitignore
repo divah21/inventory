@@ -22,6 +22,13 @@ Thumbs.db
 .vscode/
 .idea/
 
+# Claude Code
+.claude/
+
+# TypeScript build info
+*.tsbuildinfo
+next-env.d.ts
+
 # Logs
 *.log
 npm-debug.log*
