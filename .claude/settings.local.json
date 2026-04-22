@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node --check src/services/StockService.js)",
+      "Bash(node --check src/services/ReportService.js)",
+      "Bash(node --check src/importers/excelImporter.js)",
+      "Bash(node --check src/routes/index.js)",
+      "Bash(node --check src/server.js)",
+      "Bash(node --check src/controllers/uploads.js)",
+      "Bash(node --check src/middleware/errorHandler.js)"
+    ]
+  }
+}

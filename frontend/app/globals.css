@@ -1,0 +1,130 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  height: 100%;
+  background: #f5f7fb;
+  color: #0f172a;
+  font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+html.dark,
+html.dark body {
+  background: #0b1220;
+  color: #e2e8f0;
+}
+
+@layer components {
+  .card {
+    @apply bg-white dark:bg-slate-900 rounded-xl shadow-[0_1px_2px_rgba(15,23,42,0.04),0_1px_3px_rgba(15,23,42,0.05)] dark:shadow-[0_1px_2px_rgba(0,0,0,0.3),0_1px_3px_rgba(0,0,0,0.2)] border border-slate-200/70 dark:border-slate-800;
+  }
+  .input {
+    @apply w-full border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm text-slate-800 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 bg-white dark:bg-slate-900 transition focus:outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20;
+  }
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 px-3.5 py-2 rounded-lg text-sm font-medium transition-all active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-offset-1;
+  }
+  .btn-primary {
+    @apply btn bg-gradient-to-b from-brand-500 to-brand-600 text-white hover:from-brand-600 hover:to-brand-700 shadow-sm shadow-brand-500/30 focus:ring-brand-500/40;
+  }
+  .btn-secondary {
+    @apply btn bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700 hover:border-slate-300 dark:hover:border-slate-600 focus:ring-slate-300;
+  }
+  .btn-ghost {
+    @apply btn text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-slate-100;
+  }
+  .btn-danger {
+    @apply btn bg-gradient-to-b from-rose-500 to-rose-600 text-white hover:from-rose-600 hover:to-rose-700 shadow-sm shadow-rose-500/20;
+  }
+  .badge {
+    @apply inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium;
+  }
+}
+
+/* Tables (legacy utility classes used in some report pages) */
+.table th {
+  @apply text-left text-[11px] font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 px-4 py-3 border-b border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/40;
+}
+.table td {
+  @apply px-4 py-3 text-sm text-slate-700 dark:text-slate-300 border-b border-slate-100 dark:border-slate-800;
+}
+
+/* Sidebar custom scrollbar */
+.sidebar-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+.sidebar-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+.sidebar-scroll::-webkit-scrollbar-thumb {
+  background: #e2e8f0;
+  border-radius: 999px;
+}
+.sidebar-scroll::-webkit-scrollbar-thumb:hover {
+  background: #cbd5e1;
+}
+.sidebar-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: #e2e8f0 transparent;
+}
+html.dark .sidebar-scroll::-webkit-scrollbar-thumb {
+  background: #1e293b;
+}
+html.dark .sidebar-scroll::-webkit-scrollbar-thumb:hover {
+  background: #334155;
+}
+html.dark .sidebar-scroll {
+  scrollbar-color: #1e293b transparent;
+}
+
+/* Main page scrollbar */
+.page-scroll::-webkit-scrollbar {
+  width: 10px;
+}
+.page-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+.page-scroll::-webkit-scrollbar-thumb {
+  background: #e2e8f0;
+  border-radius: 999px;
+  border: 2px solid #f5f7fb;
+}
+.page-scroll::-webkit-scrollbar-thumb:hover {
+  background: #cbd5e1;
+}
+html.dark .page-scroll::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-color: #0b1220;
+}
+html.dark .page-scroll::-webkit-scrollbar-thumb:hover {
+  background: #334155;
+}
+
+/* Animations */
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes scale-in {
+  from { opacity: 0; transform: translateY(8px) scale(0.97); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+.animate-fade-in {
+  animation: fade-in 0.18s ease-out;
+}
+.animate-scale-in {
+  animation: scale-in 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* shimmer for skeletons */
+.animate-pulse {
+  animation: shimmer 1.8s linear infinite;
+}
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
